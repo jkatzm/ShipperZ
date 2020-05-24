@@ -57,10 +57,6 @@ def animate_solution(data, framerate=1000):
 	fig = plt.figure(figsize=(7, 7))
 	ax = fig.gca(projection='3d')
 
-	# def init():
-		# print("hello")
-		# ax.clear()
-
 	def animate(voxels):
 		if voxels[0][0][0]:
 			ax.clear()
