@@ -5,6 +5,7 @@ from random import sample
 from generate_data import *
 
 N_TOTAL_PIECES = 25
+RANDOM_COLORS = ['#'+''.join(sample('0123456789ABCDEF',6)) for i in range(N_TOTAL_PIECES + 1)]
 
 def animate_all_possible_shapes():
 	ALL_POSSIBLE_PIECES = all_possible_pieces()
@@ -27,11 +28,9 @@ def animate_all_possible_shapes():
 	plt.show()
 
 
-def visualize(data, close=False):
+def visualize_state(data, close=False):
 	assert(type(data) == np.ndarray)
 	assert(data.shape == (5,5,5))
-
-	RANDOM_COLORS = ['#'+''.join(sample('0123456789ABCDEF',6)) for i in range(N_TOTAL_PIECES + 1)]
 
 	fig = plt.figure(figsize=(7, 7))
 	ax = fig.gca(projection='3d')
@@ -49,4 +48,51 @@ def visualize(data, close=False):
 	else:
 		plt.show()
 	return
+
+
+def animate_solution(data, framerate=1000):
+	assert(type(data) == np.ndarray)
+	assert(data.shape == (5,5,5))
+
+	fig = plt.figure(figsize=(7, 7))
+	ax = fig.gca(projection='3d')
+
+	# def init():
+		# print("hello")
+		# ax.clear()
+
+	def animate(voxels):
+		if voxels[0][0][0]:
+			ax.clear()
+		ax.voxels(voxels, edgecolor='k')
+
+	voxels_array = np.array([data == i for i in range(N_TOTAL_PIECES + 1)])
+	ani = FuncAnimation(fig, animate, frames=voxels_array, interval=framerate)
+	plt.show()
+
+
+
+
+
+
+
+	'''
+
+	solution_list = np.array([])
+	partial_solution = np.empty(data.shape, dtype=object)
+	partial_colors = np.empty(data.shape, dtype=object)
+
+	for i in range(N_TOTAL_PIECES):
+		partial_solution[data == i] = i
+		partial_colors[partial_solution == i] = RANDOM_COLORS[i]
+		# solution_list.append(i)
+		np.append(solution_list, partial_solution)
+	'''
+
+
+
+
+
+
+
 

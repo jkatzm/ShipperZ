@@ -42,17 +42,18 @@ def read_cpp_solution(input_filename):
 	return solution
 
 def main():
-	print('Number of arguments:', len(sys.argv), 'arguments.')
-	print('Argument List:', str(sys.argv))
+	print('Number of arguments:', len(sys.argv))
+	print('Argument list:', str(sys.argv))
 
-	if sys.argv[1] == 'w': # output
+	if sys.argv[1] == 'w': # write
 		python_output_file = "python_output.txt"
 		write_data(python_output_file)
 	
-	elif sys.argv[1] == 'r': # input
+	elif sys.argv[1] == 'r': # read
 		cpp_input_file = "cpp_output.txt"
 		solution = read_cpp_solution(cpp_input_file)
-		visualize(solution)
+		# visualize_state(solution)
+		animate_solution(solution, framerate=1000)
 
 	else:
 		print("error")
