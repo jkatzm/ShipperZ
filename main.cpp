@@ -48,7 +48,7 @@ bool solve(Puzzle_State& state, int pos) {
     // TODO: get rid of the bool return signature
     // std::cout << state.num_placed() << '\n';
     
-    if (state.is_full() || state.num_placed() == 20) { // TODO: erase 20
+    if (state.is_full()) {
         std::cout << "Solution found! ";
         print_time();
         SOLUTIONS.push_back(state);

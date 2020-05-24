@@ -10,3 +10,6 @@ Code is structured as follows:
 2. Read data in C++ and solve (heavylifting occurs here) // main.cpp
 3. Write solution to file // main.cpp
 4. Read solution and visualize in Python // driver.py --> visualize.py
+
+
+As of May 23, 2020 it takes ~5 min to complete. Optimizations to follow.
