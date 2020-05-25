@@ -68,27 +68,3 @@ def animate_solution(data, framerate=1000):
 
 
 
-
-
-
-
-	'''
-
-	solution_list = np.array([])
-	partial_solution = np.empty(data.shape, dtype=object)
-	partial_colors = np.empty(data.shape, dtype=object)
-
-	for i in range(N_TOTAL_PIECES):
-		partial_solution[data == i] = i
-		partial_colors[partial_solution == i] = RANDOM_COLORS[i]
-		# solution_list.append(i)
-		np.append(solution_list, partial_solution)
-	'''
-
-
-
-
-
-
-
-
